@@ -11,6 +11,10 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
+group :devleopment, :test do
+  gem 'rspec-rails'
+end
+
 group :doc do
   gem 'sdoc', require: false
 end
