@@ -1,0 +1,7 @@
+{
+  "app/race_retrievers/*_race_retriever.rb": {
+    "command": "retriever",
+    "alternate": "spec/race_retrievers/%s_race_retriever_spec.rb",
+    "template": "class %SRaceRetriever < BaseRaceRetriever\nend"
+  }
+}
