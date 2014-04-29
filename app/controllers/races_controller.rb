@@ -11,7 +11,7 @@ class RacesController < ApplicationController
     Gmaps4rails.build_markers(Race.all) do |race, marker|
       marker.lat race.latitude
       marker.lng race.longitude
-      marker.infowindow race.title
+      marker.infowindow render_to_string partial: '/races/race', locals: { race: race }
     end
   end
 end
