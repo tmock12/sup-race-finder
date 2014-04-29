@@ -1,0 +1,14 @@
+= content_for :head do
+  = tag :meta, name: 'races', content: @races.to_json
+
+#map(style='width: 1020px; height: 500px;')
+
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {
+  zoom: 3,
+  center: new google.maps.LatLng(39.5, -98.35)
+  }, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(#{raw @races.to_json});
+    handler.fitMapToBounds();
+  });
