@@ -1,3 +1,6 @@
-%ul
-  %li= race.title
-  %li= link_to race.url
+- races.second.each do |race|
+  %ul
+    %li= race.title
+    %li= link_to race.url
+    %li= race.date.strftime("%b %d, %Y")
+  ___________

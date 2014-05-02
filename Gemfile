@@ -3,6 +3,7 @@ ruby '2.1.1'
 #ruby-gemset=race_calendar
 
 gem 'coffee-rails'
+gem 'decent_exposure'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'haml-rails'
