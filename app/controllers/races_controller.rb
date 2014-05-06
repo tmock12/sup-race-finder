@@ -30,7 +30,7 @@ class RacesController < ApplicationController
   end
 
   def races
-    Race.where(:date => start_date..end_date).group_by(&:latitude)
+    Race.where(:date => start_date..end_date.end_of_month).group_by(&:latitude)
   end
 
 end

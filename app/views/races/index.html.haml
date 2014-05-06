@@ -1,12 +1,10 @@
 = form_tag races_path, method: :get do
   %fieldset
-    Start
-    = date_select 'start_date', 'start_date', {default: start_date}
-    %br
-    End
-    = date_select 'end_date', 'end_date', {default: end_date}
-  %fieldset.actions
-    %input(type="submit" value="Update")
+    Show races from the beginning of
+    = date_select 'start_date', 'start_date', {default: start_date, discard_day: true, order: [:month, :year]}
+    to the end of
+    = date_select 'end_date', 'end_date', {default: end_date, discard_day: true, order: [:month, :year]}
+    %input(type="submit" value="Filter")
 
 #map(style='width: 1020px; height: 500px;')
 
