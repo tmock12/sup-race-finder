@@ -4,15 +4,12 @@ describe Api::RacesController do
 
   let(:race_stuff) do
     {
-      race:
-      {
-        title: 'AwesomeRace',
-        date: '10/12/2015',
-        city: 'Atlanta',
-        state: 'Georgia',
-        country: 'USA',
-        url: 'http://thesupinstructor.com/'
-      }
+      title: 'AwesomeRace',
+      date: '10/12/2015',
+      city: 'Atlanta',
+      state: 'Georgia',
+      country: 'USA',
+      url: 'http://thesupinstructor.com/'
     }
   end
   let(:race) { Race.last }
