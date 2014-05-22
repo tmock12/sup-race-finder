@@ -1,0 +1,19 @@
+= form_tag list_races_path, method: :get do
+  %fieldset
+    Show races from the beginning of
+    = date_select 'start_date', 'start_date', {default: start_date, discard_day: true, order: [:month, :year]}
+    to the end of
+    = date_select 'end_date', 'end_date', {default: end_date, discard_day: true, order: [:month, :year]}
+    %input(type="submit" value="Filter")
+
+%table.race
+  %thead
+    %tr
+      - ["Name", "Date", "Address"].each do |th|
+        %th= th
+  %tbody
+    - @races.each do |race|
+      %tr
+        %td= link_to(race.title, race.url, target: "_blank")
+        %td= link_to(race.date.to_date, race.url, target: "_blank")
+        %td= link_to(race.full_address, race.url, target: "_blank")

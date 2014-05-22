@@ -9,4 +9,14 @@
     = javascript_include_tag "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"
     = yield :head
   %body
-    = yield
+    %header
+      %nav
+        %ul
+          %li
+            %h1 SUP Race List
+          %li
+            =link_to "View List of Races", :list_races
+          %li
+            =link_to "View Map of Races", :races
+    .container
+      = yield
