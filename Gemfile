@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 #ruby-gemset=race_calendar
 
+gem 'authem'
 gem 'coffee-rails'
 gem 'decent_exposure'
+gem 'fabrication'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'haml-rails'

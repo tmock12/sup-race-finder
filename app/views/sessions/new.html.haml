@@ -1,0 +1,11 @@
+= form_tag :sessions, class: "sign_in" do
+  .login
+    %fieldset
+      %dl.half
+        %dt= label_tag :email
+        %dd= email_field_tag :email, params[:email], FormBuilder::EMAIL_OPTIONS.merge(autofocus: 'autofocus')
+      %dl.half
+        %dt= label_tag :password
+        %dd= password_field_tag :password, nil
+    %fieldset.actions
+      = submit_tag 'Sign In'
