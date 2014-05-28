@@ -19,7 +19,7 @@ class SupRacerRaceRetriever < BaseRaceRetriever
         state: state,
         country: country,
         url: url
-      )
+      ).activate!
     end
   end
 end

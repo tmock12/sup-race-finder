@@ -1,5 +1,5 @@
 class RacesController < ApplicationController
-  before_filter :require_user, except: [:list, :index]
+  before_filter :require_user, except: [:list, :index, :new, :create]
   respond_to :html
 
   after_filter :set_session_dates
@@ -21,7 +21,8 @@ class RacesController < ApplicationController
   end
 
   def create
-    @race = Race.create(race_params)
+    @race = Race.new(race_params)
+    flash[:success] = "Your race has been submitted for approval. This usually happens within 24 hours" if @race.save
     respond_with @race, location: :list_races
   end
 
@@ -46,6 +47,12 @@ class RacesController < ApplicationController
     redirect_to :list_races
   end
 
+  def activate
+    race = Race.find(params[:race_id])
+    race.activate!
+    redirect_to :dashboard
+  end
+
   protected
 
   def races_hash
@@ -61,7 +68,7 @@ class RacesController < ApplicationController
   end
 
   def races
-    Race.where(:date => start_date..end_date.end_of_month)
+    Race.active.where(:date => start_date..end_date.end_of_month)
   end
 
   def set_session_dates

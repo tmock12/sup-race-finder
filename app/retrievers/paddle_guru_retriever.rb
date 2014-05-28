@@ -17,7 +17,7 @@ class PaddleGuruRetriever < BaseRaceRetriever
         city: city,
         state: state,
         url: url
-      )
+      ).activate!
     end
   end
 end

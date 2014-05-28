@@ -1,10 +1,20 @@
 class Race < ActiveRecord::Base
   geocoded_by :full_address
   validate :new_race, on: :create
-  after_validation :geocode
+
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
 
   def full_address
     [street, city, state, zip, country].compact.reject{ |x| x.blank? }.join(', ')
+  end
+
+  def activate!
+    coords = geocode
+    self.latitude = coords.first
+    self.longitude = coords.last
+    self.active = true
+    self.save
   end
 
   private

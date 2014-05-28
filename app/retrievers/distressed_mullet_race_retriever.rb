@@ -17,7 +17,7 @@ class DistressedMulletRaceRetriever < BaseRaceRetriever
         city: city,
         state: state,
         url: url
-      )
+      ).activate!
       sleep(2.seconds)
     end
   end

@@ -2,4 +2,9 @@
   = render 'form', f: f
   = f.submit
 
-= link_to "Delete Race", @race, method: :delete, confirm: "Are you sure you want to delete this race?"
+%ul
+  %li
+    = link_to "Delete Race", @race, method: :delete, confirm: "Are you sure you want to delete this race?"
+  - unless @race.active?
+    %li
+      = link_to "Activate Race", race_activate_path(@race)

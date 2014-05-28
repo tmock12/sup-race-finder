@@ -1,4 +1,4 @@
 - for level, message in flash
-  .flash
+  .flash{class: level.to_s}
     %h2= level.to_s.titleize
     %p= message
