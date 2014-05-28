@@ -20,7 +20,7 @@ class Race < ActiveRecord::Base
   private
 
   def new_race
-    errors.add(:title, "Race already in database") if
+    errors.add(:title, "already exists") if
     Race.where(date: date).where("title LIKE ?", "%#{title}%").present?
   end
 end
