@@ -18,6 +18,9 @@
             =link_to "View List of Races", :list_races
           %li
             =link_to "View Map of Races", :races
+          - if current_user
+            %li
+              =link_to "Add a Race", :new_race
     .container
       = render 'shared/flash_messages'
       = yield

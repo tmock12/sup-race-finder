@@ -16,12 +16,17 @@ class RacesController < ApplicationController
     render cms_layout: 'application'
   end
 
-  def list
-    @races = races.order(:date)
+  def new
+    @race = Race.new
   end
 
   def create
-    redirect_to :back
+    @race = Race.create(race_params)
+    respond_with @race, location: :list_races
+  end
+
+  def list
+    @races = races.order(:date)
   end
 
   def edit
