@@ -1,5 +1,5 @@
 RaceCalendar::Application.routes.draw do
-  resources :races, only: [:index, :create] do
+  resources :races do
     get 'list', on: :collection, as: :list
   end
 

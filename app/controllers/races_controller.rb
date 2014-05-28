@@ -1,4 +1,5 @@
 class RacesController < ApplicationController
+  before_filter :require_user, except: [:list, :index]
 
   after_filter :set_session_dates
 
@@ -22,6 +23,16 @@ class RacesController < ApplicationController
     redirect_to :back
   end
 
+  def edit
+    @race = Race.find(params[:id])
+  end
+
+  def update
+    race = Race.find(params[:id])
+    race.update_attributes(race_params)
+    redirect_to :list_races
+  end
+
   protected
 
   def races_hash
@@ -43,5 +54,12 @@ class RacesController < ApplicationController
   def set_session_dates
     session[:start_date] = start_date.strftime('%Y-%m-%d')
     session[:end_date] = end_date.strftime('%Y-%m-%d')
+  end
+
+  def race_params
+    params.require(:race).permit(
+      :title, :date, :street, :city, :state,
+      :country, :zip, :url, :description
+    )
   end
 end
