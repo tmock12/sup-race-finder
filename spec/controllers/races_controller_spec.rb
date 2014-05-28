@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe RacesController do
+  before { described_class.skip_before_filter(:require_user) }
 
   describe '#update' do
-    before { described_class.skip_before_filter(:require_user) }
     let(:race) { Fabricate(:race) }
     let(:race_params) do
       {
@@ -24,6 +24,14 @@ describe RacesController do
       race_params.each do | k, v |
         expect(race.send(k)).to eq(v)
       end
+    end
+  end
+
+  describe '#destroy' do
+    before { Fabricate.times(2, :race) }
+    let!(:race) { Fabricate(:race) }
+    it 'destroys a race' do
+      expect{ delete :destroy, id: race.id }.to change{Race.count}.by(-1)
     end
   end
 end

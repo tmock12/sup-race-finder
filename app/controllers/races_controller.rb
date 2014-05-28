@@ -33,6 +33,13 @@ class RacesController < ApplicationController
     redirect_to :list_races
   end
 
+  def destroy
+    race = Race.find(params[:id])
+    flash[:success] = "Succesfully removed race #{race.title}"
+    race.destroy
+    redirect_to :list_races
+  end
+
   protected
 
   def races_hash

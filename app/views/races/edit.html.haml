@@ -35,3 +35,5 @@
     %dt= f.label :description
     %dd= f.text_area :description
   = f.submit
+
+= link_to "Delete Race", @race, method: :delete, confirm: "Are you sure you want to delete this race?"
