@@ -1,6 +1,6 @@
 class Race < ActiveRecord::Base
   geocoded_by :full_address
-  validate :new_race
+  validate :new_race, on: :create
   after_validation :geocode
 
   def full_address

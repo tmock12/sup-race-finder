@@ -1,5 +1,6 @@
 class RacesController < ApplicationController
   before_filter :require_user, except: [:list, :index]
+  respond_to :html
 
   after_filter :set_session_dates
 
@@ -28,9 +29,9 @@ class RacesController < ApplicationController
   end
 
   def update
-    race = Race.find(params[:id])
-    race.update_attributes(race_params)
-    redirect_to :list_races
+    @race = Race.find(params[:id])
+    @race.update_attributes(race_params)
+    respond_with @race, location: :list_races
   end
 
   def destroy
