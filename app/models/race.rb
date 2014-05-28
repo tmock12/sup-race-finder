@@ -4,7 +4,7 @@ class Race < ActiveRecord::Base
   after_validation :geocode
 
   def full_address
-    [street, city, state, zip, country].compact.join(', ')
+    [street, city, state, zip, country].compact.reject{ |x| x.blank? }.join(', ')
   end
 
   private
