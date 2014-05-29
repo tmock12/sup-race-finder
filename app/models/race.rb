@@ -6,7 +6,7 @@ class Race < ActiveRecord::Base
   scope :inactive, -> { where(active: false) }
 
   def full_address
-    [street, city, state, zip, country].compact.reject{ |x| x.blank? }.join(', ')
+    [street, city, state, zip, country].compact.reject(&:blank?).join(', ')
   end
 
   def activate!
