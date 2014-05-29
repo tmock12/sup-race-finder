@@ -18,13 +18,13 @@ describe SessionsController do
     context 'with a found user' do
       it 'redirects to root with valid password' do
         post :create, email: user.email, password: 'password'
-        expect(response).to redirect_to(:root)
+        expect(response).to redirect_to(:dashboard)
       end
 
       it 'renders new with invalid password' do
         post :create, email: user.email, password: 'wr0ng'
         expect(flash[:sign_in_error]).to eq("Your email or password are incorrect. Please try again.")
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(:sign_in)
       end
     end
 
@@ -32,7 +32,7 @@ describe SessionsController do
       it 'renders new with a flash message' do
         post :create, email: 'noAuser@example.com', password: 'wr0ng'
         expect(flash[:sign_in_error]).to eq("Your email or password are incorrect. Please try again.")
-        expect(response).to render_template(:new)
+        expect(response).to redirect_to(:sign_in)
       end
     end
   end

@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
   def create
     if user && user.authenticate(params[:password])
       sign_in(user)
-      redirect_to :root
+      redirect_to :dashboard
     else
-      flash.now[:sign_in_error] = "Your email or password are incorrect. Please try again."
-      render :new
+      flash[:sign_in_error] = "Your email or password are incorrect. Please try again."
+      redirect_to sign_in_path
     end
   end
 

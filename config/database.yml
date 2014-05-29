@@ -8,10 +8,13 @@ development:
   database: race_calendar_development
   <<: *global
 
-test:
+test: &test
   database: race_calendar_test
   <<: *global
 
 production:
   database: race_calendar_production
   <<: *global
+
+cucumber:
+  <<: *test
