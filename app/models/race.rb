@@ -21,6 +21,6 @@ class Race < ActiveRecord::Base
 
   def new_race
     errors.add(:title, "already exists") if
-    Race.where(date: date).where("title LIKE ?", "%#{title}%").present?
+    Race.where(date: date).where("UPPER(title) LIKE UPPER(?)", "%#{title}%").present?
   end
 end
