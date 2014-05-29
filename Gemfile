@@ -3,6 +3,7 @@ ruby '2.1.1'
 #ruby-gemset=race_calendar
 
 gem 'authem'
+gem 'chronic'
 gem 'coffee-rails'
 gem 'decent_exposure'
 gem 'fabrication'
