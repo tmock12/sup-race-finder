@@ -27,6 +27,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    addressable (2.3.6)
     arel (5.0.1.20140414130214)
     authem (1.5.0)
       activesupport (>= 4.0.4)
@@ -64,6 +65,9 @@ GEM
     database_cleaner (1.3.0)
     decent_exposure (2.3.2)
     diff-lcs (1.2.5)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.1.0)
     fabrication (2.11.2)
@@ -89,6 +93,8 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    launchy (2.4.2)
+      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -186,6 +192,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   decent_exposure
+  email_spec
   fabrication
   faker
   geocoder

@@ -1,0 +1,5 @@
+%h3 Congrats! #{@race.title} has been approved and is now listed on SupRaceFinder
+%p If you would like to edit or delete your race, use the following link:
+%p= link_to "Race", edit_race_url(@race.token)
+%br
+%p= "Don't lose this email, it contains your custom link to edit your race"

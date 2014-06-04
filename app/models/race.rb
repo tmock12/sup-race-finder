@@ -1,6 +1,8 @@
 class Race < ActiveRecord::Base
   geocoded_by :full_address
   validate :new_race, on: :create
+  validates :email, presence: true
+  before_save :generate_token, on: :create
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
@@ -22,5 +24,9 @@ class Race < ActiveRecord::Base
   def new_race
     errors.add(:title, "already exists") if
     Race.where(date: date).where("UPPER(title) LIKE UPPER(?)", "%#{title}%").present?
+  end
+
+  def generate_token
+    self.token = SecureRandom.hex.upcase
   end
 end

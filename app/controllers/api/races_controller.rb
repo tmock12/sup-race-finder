@@ -21,6 +21,6 @@ class Api::RacesController < ActionController::Base
       :url,
       :latitude,
       :longitude
-    )
+    ).merge({email: 'taylor@hashrocket.com'})
   end
 end

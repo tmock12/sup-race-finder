@@ -1,0 +1,10 @@
+= form_for @race, url: admin_race_path do |f|
+  = render 'races/form', f: f
+  = f.submit "Update Race"
+
+%ul
+  %li
+    = link_to "Delete Race", admin_race_path(@race.id), method: :delete, data: { confirm: "Are you sure you want to delete this race?" }
+  - unless @race.active?
+    %li
+      = link_to "Approve Race", admin_race_activate_path(@race)

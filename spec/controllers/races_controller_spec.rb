@@ -19,7 +19,7 @@ describe RacesController do
     end
 
     it 'Updates the race with provided params' do
-      put :update, id: race.id, race: race_params
+      put :update, id: race.token, race: race_params
       race.reload
       race_params.each do | k, v |
         expect(race.send(k)).to eq(v)
@@ -31,7 +31,7 @@ describe RacesController do
     before { Fabricate.times(2, :race) }
     let!(:race) { Fabricate(:race) }
     it 'destroys a race' do
-      expect{ delete :destroy, id: race.id }.to change{Race.count}.by(-1)
+      expect{ delete :destroy, id: race.token }.to change{Race.count}.by(-1)
     end
   end
 end

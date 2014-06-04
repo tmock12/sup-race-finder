@@ -1,5 +1,4 @@
 class RacesController < ApplicationController
-  before_filter :require_user, except: [:list, :index, :new, :create]
   respond_to :html
 
   after_filter :set_session_dates
@@ -31,26 +30,19 @@ class RacesController < ApplicationController
   end
 
   def edit
-    @race = Race.find(params[:id])
+    @race = Race.find_by!(token: params[:id])
   end
 
   def update
-    @race = Race.find(params[:id])
+    @race = Race.find_by(token: params[:id])
     @race.update_attributes(race_params)
     respond_with @race, location: :list_races
   end
 
   def destroy
-    race = Race.find(params[:id])
-    flash[:success] = "Succesfully removed race #{race.title}"
-    race.destroy
+    race = Race.find_by(token: params[:id])
+    flash[:success] = "Succesfully removed race #{race.title}" if race.destroy
     redirect_to :list_races
-  end
-
-  def activate
-    race = Race.find(params[:race_id])
-    race.activate!
-    redirect_to :dashboard
   end
 
   protected
@@ -79,7 +71,7 @@ class RacesController < ApplicationController
   def race_params
     params.require(:race).permit(
       :title, :date, :street, :city, :state,
-      :country, :zip, :url, :description
+      :country, :zip, :url, :description, :email
     )
   end
 end

@@ -11,4 +11,4 @@
         %td= link_to(race.title, race.url, target: "_blank")
         %td= link_to(race.date.to_date, race.url, target: "_blank")
         %td= link_to(race.full_address, race.url, target: "_blank")
-        %td= link_to("Edit Race", edit_race_path(race)) if current_user
+        %td= link_to("Edit Race", edit_admin_race_path(race)) if current_user

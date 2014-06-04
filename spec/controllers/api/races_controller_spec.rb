@@ -22,5 +22,6 @@ describe Api::RacesController do
     expect(race.state).to eq('Georgia')
     expect(race.country).to eq('USA')
     expect(race.url).to eq('http://thesupinstructor.com/')
+    expect(race.email).to eq('taylor@hashrocket.com')
   end
 end

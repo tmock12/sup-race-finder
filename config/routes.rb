@@ -2,7 +2,12 @@ RaceCalendar::Application.routes.draw do
   resources :races do
     get 'list', on: :collection, as: :list
     get 'inactive', on: :collection, as: :inactive
-    get 'activate', action: :activate
+  end
+
+  namespace 'admin' do
+    resources :races, only: [:edit, :update, :destroy] do
+      get 'activate', action: :activate
+    end
   end
 
   resource :dashboard, only: :show
