@@ -13,8 +13,8 @@ class Race < ActiveRecord::Base
 
   def activate!
     coords = geocode
-    self.latitude = coords.first
-    self.longitude = coords.last
+    self.latitude = coords.try(:first)
+    self.longitude = coords.try(:last)
     self.active = true
     self.save
   end

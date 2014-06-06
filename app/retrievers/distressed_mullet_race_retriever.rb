@@ -11,13 +11,14 @@ class DistressedMulletRaceRetriever < BaseRaceRetriever
       city = race.at_css('.views-field-field-city').text.strip
       state = race.at_css('.views-field-field-state').text.strip
       url = get_race_url(race.at_css('.views-field-title a')[:href])
-      Race.create(
+      new_race = Race.create(
         title: title,
         date: Date.strptime(date, "%m.%d.%Y"),
         city: city,
         state: state,
         url: url
-      ).activate!
+      )
+      new_race.activate! if new_race.valid?
       sleep(2.seconds)
     end
   end

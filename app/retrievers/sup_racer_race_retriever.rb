@@ -12,14 +12,15 @@ class SupRacerRaceRetriever < BaseRaceRetriever
       state = race.at_css('.column-4').text
       country = race.at_css('.column-5').text
       url = race.at_css('.column-2').children.last[:href]
-      Race.create(
+      new_race = Race.create(
         title: title,
         date: Date.strptime(date, "%m/%d/%Y"),
         city: city,
         state: state,
         country: country,
         url: url
-      ).activate!
+      )
+      new_race.activate! if new_race.valid?
     end
   end
 end
