@@ -1,0 +1,15 @@
+%dl
+  %dt Title:
+  %dd= @classified.title
+
+%dl
+  %dt Price:
+  %dd= @classified.price
+
+%dl
+  %dt Location:
+  %dd= @classified.full_address
+
+%dl
+  %dt Image
+  %dd= filepicker_image_tag @classified.filepicker_url, w: 600, h: 600, fit: 'clip'

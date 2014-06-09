@@ -8,6 +8,6 @@
   %tbody
     - classifieds.each do |classified|
       %tr
-        %td= classified.title
-        %td= classified.price
-        %td= classified.full_address
+        %td= link_to(classified.title, classified_path(classified))
+        %td= link_to(classified.price, classified_path(classified))
+        %td= link_to(classified.full_address, classified_path(classified))
