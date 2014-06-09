@@ -1,0 +1,2 @@
+Fabricator :classified do
+end

@@ -1,0 +1,11 @@
+%table.race
+  %thead
+    %tr
+      - ["Title", "Price", "Location"].each do |th|
+        %th= th
+  %tbody
+    - classifieds.each do |classified|
+      %tr
+        %td= classified.title
+        %td= classified.price
+        %td= classified.full_address
