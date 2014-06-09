@@ -14,5 +14,6 @@ Bundler.require(:default, Rails.env)
 module RaceCalendar
   class Application < Rails::Application
     config.autoload_paths += %W(#{Rails.root}/lib)
+    config.filepicker_rails.api_key = ENV["FILEPICKER_KEY"]
   end
 end

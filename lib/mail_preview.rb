@@ -6,5 +6,10 @@ if Rails.env.development?
       RaceMailer.activated(race)
     end
 
+    def new_classified
+      classified = Fabricate(:classified)
+      ClassifiedMailer.new_classified(classified)
+    end
+
   end
 end

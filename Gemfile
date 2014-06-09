@@ -8,6 +8,7 @@ gem 'coffee-rails'
 gem 'decent_exposure'
 gem 'fabrication'
 gem 'faker'
+gem 'filepicker-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'haml-rails'
@@ -21,7 +22,8 @@ gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
-group :devleopment, :test do
+group :development, :test do
+  gem 'dotenv-rails'
   gem 'rspec-rails'
 end
 

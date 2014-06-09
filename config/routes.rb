@@ -4,7 +4,7 @@ RaceCalendar::Application.routes.draw do
     get 'inactive', on: :collection, as: :inactive
   end
 
-  resources :classifieds, only: [:index]
+  resources :classifieds, only: [:index, :new, :create]
 
   namespace 'admin' do
     resources :races, only: [:edit, :update, :destroy] do
