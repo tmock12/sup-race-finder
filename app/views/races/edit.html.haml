@@ -1,4 +1,4 @@
-= form_for @race do |f|
+= form_for @race, url: race_path(id: @race.token) do |f|
   = render 'form', f: f
   = f.submit "Update Race"
 

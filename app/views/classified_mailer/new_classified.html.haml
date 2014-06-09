@@ -1,5 +1,5 @@
 %h3 Congrats! Your classified has been added to SupRaceFinder
 %p If you would like to edit or delete your classified, use the following link:
-%p= link_to @classified.title, '#'
+%p= link_to @classified.title, edit_classified_url(@classified.token)
 %br
 %p= "Don't lose this email, it contains your custom link to edit your classified"

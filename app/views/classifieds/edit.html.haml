@@ -1,0 +1,10 @@
+= content_for :head do
+  = filepicker_js_include_tag
+
+= form_for @classified, url: classified_path(id: @classified.token) do |f|
+  = render 'form', f: f
+  = f.submit "Update Classified"
+
+%ul
+  %li
+    = link_to "Delete Classified", classified_path(id: @classified.token), method: :delete, data: { confirm: "Are you sure you want to delete this classified?" }

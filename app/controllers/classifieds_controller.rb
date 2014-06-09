@@ -19,6 +19,22 @@ class ClassifiedsController < ApplicationController
     @classified = Classified.find(params[:id])
   end
 
+  def edit
+    @classified = Classified.find_by!(token: params[:id])
+  end
+
+  def update
+    @classified = Classified.find_by!(token: params[:id])
+    @classified.update_attributes(classified_params)
+    respond_with @classified, location: :classifieds
+  end
+
+  def destroy
+    classified = Classified.find_by!(token: params[:id])
+    flash[:success] = "Succesfully removed classified #{classified.title}" if classified.destroy
+    redirect_to :classifieds
+  end
+
   protected
 
   def classified_params
