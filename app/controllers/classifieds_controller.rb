@@ -17,6 +17,7 @@ class ClassifiedsController < ApplicationController
 
   def show
     @classified = Classified.find(params[:id])
+    @classified_message = ClassifiedMessage.new
   end
 
   def edit

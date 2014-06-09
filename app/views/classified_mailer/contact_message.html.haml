@@ -1,0 +1,13 @@
+%h3 You've received a message about your #{@classified.title}:
+
+%dl
+  %dt From:
+  %dd= @message.name
+
+%dl
+  %dt Email:
+  %dd= @message.email
+
+%dl
+  %dt Message:
+  %dd= @message.message

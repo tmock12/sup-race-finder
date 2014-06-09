@@ -6,6 +6,8 @@ RaceCalendar::Application.routes.draw do
 
   resources :classifieds
 
+  resources :classified_messages, only: :create
+
   namespace 'admin' do
     resources :races, only: [:edit, :update, :destroy] do
       get 'activate', action: :activate

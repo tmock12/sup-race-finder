@@ -1,0 +1,16 @@
+= form_for @classified_message do |f|
+  = f.hidden_field :classified_id, value: @classified.id
+  %fieldset
+    Contact the Seller:
+    %dl
+      %dt= f.label :name
+      %dd= f.text_field :name
+
+      %dt= f.label :email, "Email Address"
+      %dd= f.email_field :email
+
+      %dt= f.label :message
+      %dd= f.text_area :message, rows: 8, cols: 40
+    = f.submit "Send"
+.sent_message
+  %p Your message was sent successfully to the seller.
