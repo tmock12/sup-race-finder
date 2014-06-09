@@ -19,7 +19,6 @@ gem 'pg'
 gem 'pry-rails'
 gem 'rails'
 gem 'sass-rails'
-gem 'turbolinks'
 gem 'uglifier'
 
 group :development, :test do

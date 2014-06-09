@@ -186,8 +186,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.2)
-      coffee-rails
     tzinfo (1.2.0)
       thread_safe (~> 0.1)
     uglifier (2.5.0)
@@ -225,5 +223,4 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   sdoc
-  turbolinks
   uglifier
