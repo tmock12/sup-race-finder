@@ -12,7 +12,6 @@ class RacesController < ApplicationController
 
   def index
     @races = races_hash
-    render cms_layout: 'application'
   end
 
   def new
