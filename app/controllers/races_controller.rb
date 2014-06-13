@@ -25,7 +25,7 @@ class RacesController < ApplicationController
   end
 
   def list
-    @races = races.order(:date)
+    @races = races.order(:date).group_by(&:date)
   end
 
   def edit

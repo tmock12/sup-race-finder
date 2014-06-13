@@ -77,11 +77,16 @@ body
     padding: 30px
 
   table.race
+    width: 100%
     td
       padding-left: 20px
     td + td
       min-width: 80px
-    tr:hover
-      & td
-        background: yellow
-
+    tr
+      &:hover
+        & td
+          background: yellow
+      &.date
+        font-weight: bold
+        text-align: center
+        background: #efefef
