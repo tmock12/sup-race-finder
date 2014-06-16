@@ -1,6 +1,18 @@
 task :deploy_races => :environment do
-  uri = URI.parse("http://quiet-journey-7381.herokuapp.com/api/races.json")
+  uri = URI.parse("http://supracefinder.com/api/races.json")
   Race.all.each do |race|
-    Net::HTTP.post_form(uri, race.as_json)
+    race_json = {
+      title: race.title,
+      date: race.date,
+      city: race.city,
+      state: race.state,
+      country: race.country,
+      url: race.url,
+      latitude: race.latitude,
+      longitude: race.longitude,
+      active: race.active,
+      email: race.email
+    }
+    Net::HTTP.post_form(uri, race_json)
   end
 end
