@@ -1,7 +1,7 @@
 class Race < ActiveRecord::Base
   geocoded_by :full_address
   validate :new_race, on: :create
-  validates :email, presence: true
+  validates :email, :date, :title, presence: true
   before_save :generate_token, on: :create
 
   scope :active, -> { where(active: true) }

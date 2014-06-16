@@ -1,9 +1,9 @@
-class Api::RacesController < ActionController::Base
+class Api::RacesController < ApiController
 
   def create
     race = Race.new(race_params)
     if race.save
-      render nothing: true
+      render json: race, status: :created, serializer: Api::RaceSerializer
     else
       render json: {errors: race.errors.full_messages}, status: :bad_request
     end
@@ -12,15 +12,15 @@ class Api::RacesController < ActionController::Base
   protected
 
   def race_params
-    params.permit(
+    params.require(:race).permit(
       :title,
-      :date,
       :city,
       :state,
       :country,
       :url,
       :latitude,
-      :longitude
-    ).merge({email: 'taylor@hashrocket.com'})
+      :longitude,
+      :email
+    ).merge({ date: Chronic.parse(params[:race][:date]) })
   end
 end

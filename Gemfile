@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 #ruby-gemset=race_calendar
 
+gem 'active_model_serializers'
 gem 'authem'
 gem 'chronic'
 gem 'coffee-rails'
@@ -23,6 +24,7 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'rspec_api_documentation'
   gem 'rspec-rails'
 end
 
