@@ -5,7 +5,7 @@ class PaddleGuruRetriever < BaseRaceRetriever
   end
 
   def get_races
-    page.css(".upcoming tbody tr").each do |race|
+    page.css("table#upcoming-regattas tbody tr").each do |race|
       date = race.at_css('.date').text
       title = race.at_css('.title').text
       city = race.at_css('.location').text.split(',')[0...-1].join(', ')
@@ -16,7 +16,8 @@ class PaddleGuruRetriever < BaseRaceRetriever
         date: Date.strptime(date, "%m/%d/%Y"),
         city: city,
         state: state,
-        url: url
+        url: url,
+        email: 'taylor@hashrocket.com'
       )
       new_race.activate! if new_race.valid?
     end

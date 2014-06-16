@@ -18,7 +18,8 @@ class SupRacerRaceRetriever < BaseRaceRetriever
         city: city,
         state: state,
         country: country,
-        url: url
+        url: url,
+        email: 'taylor@hashrocket.com'
       )
       new_race.activate! if new_race.valid?
     end
