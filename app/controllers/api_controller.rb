@@ -8,6 +8,6 @@ class ApiController < ActionController::Base
   protected
 
   def require_api_user
-    render text: '', status: :unauthorized unless api_user.present?
+    render json: {error: 'Invalid User'}, status: :unauthorized unless api_user.present?
   end
 end

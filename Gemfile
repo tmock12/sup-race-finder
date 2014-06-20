@@ -18,8 +18,10 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem 'pg'
 gem 'pry-rails'
+gem 'raddocs'
 gem 'rails'
 gem 'sass-rails'
+gem 'timecop'
 gem 'uglifier'
 
 group :development, :test do

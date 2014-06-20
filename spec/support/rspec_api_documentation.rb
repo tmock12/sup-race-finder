@@ -1,7 +1,7 @@
 RspecApiDocumentation.configure do |config|
   config.format = [:json, :combined_text]
   config.docs_dir = Rails.root.join("doc", "api")
-  config.curl_host = 'http://example.org'
+  config.curl_host = 'http://supracefinder.com'
 end
 
 def authorized_user!(opts={})

@@ -9,7 +9,20 @@ class Api::RacesController < ApiController
     end
   end
 
+  def index
+    render json: Race.active.where(:date => Chronic.parse(start_date)..Chronic.parse(end_date)).
+      order(:date), each_serializer: Api::RaceSerializer
+  end
+
   protected
+
+  def start_date
+    params[:start_date].presence || Date.today
+  end
+
+  def end_date
+    params[:end_date].presence || (start_date + 1.year)
+  end
 
   def race_params
     params.require(:race).permit(

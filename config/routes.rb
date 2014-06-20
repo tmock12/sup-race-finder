@@ -20,7 +20,11 @@ RaceCalendar::Application.routes.draw do
   resource :sessions, only: [:new, :create]
 
   namespace :api do
-    resources :races, only: :create
+    resources :races, only: [:create, :index]
+  end
+
+  if defined?(Raddocs)
+    mount Raddocs::App => "/docs"
   end
 
   root 'races#index'
