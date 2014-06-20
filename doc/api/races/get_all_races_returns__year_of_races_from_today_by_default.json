@@ -1,0 +1,49 @@
+{
+  "resource": "Races",
+  "http_method": "GET",
+  "route": "/api/races",
+  "description": "Get all races returns 1 year of races from today by default",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "start_date",
+      "description": "Start Date"
+    },
+    {
+      "name": "end_date",
+      "description": "End Date"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/races",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token token=\"39310591A8D9575FF798FA51D93464EA\"",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"races\":[{\"title\":\"Molkai\",\"date\":\"Jun 06, 2015\",\"city\":\"Molokai\",\"state\":\"Hawaii\",\"country\":\"USA\",\"url\":\"http://www.molokai2oahu.com/\",\"email\":\"shannon@molokai2oahu.com\"},{\"title\":\"Lost Mills\",\"date\":\"Aug 10, 2015\",\"city\":\"Brombachsee\",\"state\":\"\",\"country\":\"Germany\",\"url\":\"http://thelostmills.com/\",\"email\":\"info@lostmills.com\"}]}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "\"2377e0561337cc7d769b36b0ad74eab8\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "1512ebd5-7859-4a38-8a31-15a456af4c03",
+        "X-Runtime": "0.000000",
+        "Content-Length": "333"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://supracefinder.com/api/races\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Authorization: Token token=\\\"39310591A8D9575FF798FA51D93464EA\\\"\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

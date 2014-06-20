@@ -1,0 +1,85 @@
+Create a Race
+-------------
+
+Request:
+  POST /api/races
+  Authorization: Token token="51A7D785CDFADD635982FCF8F5D7004F"
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+  {"race":{"title":"AwesomeRace","date":"December 10 2015","city":"Atlanta","state":"Georgia","country":"USA","url":"http://thesupinstructor.com/","email":"chase@bicsup.com"}}
+
+Response:
+  Status: 201 Created
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 169
+  Content-Type: application/json; charset=utf-8
+  ETag: "58e3a861a48dd09de9900797067aad6b"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 18e78e4b-88db-48e1-a76c-d3fda5ca4787
+  X-Runtime: 0.104658
+  X-XSS-Protection: 1; mode=block
+
+  {"race":{"title":"AwesomeRace","date":"Dec 10, 2015","city":"Atlanta","state":"Georgia","country":"USA","url":"http://thesupinstructor.com/","email":"chase@bicsup.com"}}
+
+
+Get all races returns 1 year of races from today by default
+-----------------------------------------------------------
+
+Parameters:
+  * start_date - Start Date
+  * end_date - End Date
+
+Request:
+  GET /api/races
+  Authorization: Token token="39310591A8D9575FF798FA51D93464EA"
+  Content-Type: application/json
+  Cookie: 
+  Host: example.org
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 333
+  Content-Type: application/json; charset=utf-8
+  ETag: "2377e0561337cc7d769b36b0ad74eab8"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 1512ebd5-7859-4a38-8a31-15a456af4c03
+  X-Runtime: 0.000000
+  X-XSS-Protection: 1; mode=block
+
+  {"races":[{"title":"Molkai","date":"Jun 06, 2015","city":"Molokai","state":"Hawaii","country":"USA","url":"http://www.molokai2oahu.com/","email":"shannon@molokai2oahu.com"},{"title":"Lost Mills","date":"Aug 10, 2015","city":"Brombachsee","state":"","country":"Germany","url":"http://thelostmills.com/","email":"info@lostmills.com"}]}
+
+
+Get races filtered by dates
+---------------------------
+
+Parameters:
+  * start_date - Start Date
+  * end_date - End Date
+
+Request:
+  GET /api/races?start_date=Jun+1%2C+2015&end_date=Jun+20%2C+2015
+  Authorization: Token token="9990C3D509F19E5F3EBEC442C6623644"
+  Cookie: 
+  Host: example.org
+
+  end_date=Jun 20, 2015
+  start_date=Jun 1, 2015
+
+Response:
+  Status: 200 OK
+  Cache-Control: max-age=0, private, must-revalidate
+  Content-Length: 174
+  Content-Type: application/json; charset=utf-8
+  ETag: "e5727551006ddd643cafa6642514e2fd"
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-Request-Id: 268d4196-95cf-4b6b-815d-fcd0ef3906d9
+  X-Runtime: 0.000000
+  X-XSS-Protection: 1; mode=block
+
+  {"races":[{"title":"Molkai","date":"Jun 06, 2015","city":"Molokai","state":"Hawaii","country":"USA","url":"http://www.molokai2oahu.com/","email":"shannon@molokai2oahu.com"}]}

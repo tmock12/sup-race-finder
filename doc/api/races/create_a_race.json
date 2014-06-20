@@ -1,0 +1,42 @@
+{
+  "resource": "Races",
+  "http_method": "POST",
+  "route": "/api/races",
+  "description": "Create a Race",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/races",
+      "request_body": "{\"race\":{\"title\":\"AwesomeRace\",\"date\":\"December 10 2015\",\"city\":\"Atlanta\",\"state\":\"Georgia\",\"country\":\"USA\",\"url\":\"http://thesupinstructor.com/\",\"email\":\"chase@bicsup.com\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token token=\"51A7D785CDFADD635982FCF8F5D7004F\"",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\"race\":{\"title\":\"AwesomeRace\",\"date\":\"Dec 10, 2015\",\"city\":\"Atlanta\",\"state\":\"Georgia\",\"country\":\"USA\",\"url\":\"http://thesupinstructor.com/\",\"email\":\"chase@bicsup.com\"}}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "\"58e3a861a48dd09de9900797067aad6b\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "18e78e4b-88db-48e1-a76c-d3fda5ca4787",
+        "X-Runtime": "0.104658",
+        "Content-Length": "169"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://supracefinder.com/api/races\" -d '{\"race\":{\"title\":\"AwesomeRace\",\"date\":\"December 10 2015\",\"city\":\"Atlanta\",\"state\":\"Georgia\",\"country\":\"USA\",\"url\":\"http://thesupinstructor.com/\",\"email\":\"chase@bicsup.com\"}}' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Authorization: Token token=\\\"51A7D785CDFADD635982FCF8F5D7004F\\\"\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

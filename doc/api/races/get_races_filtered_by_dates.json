@@ -1,0 +1,50 @@
+{
+  "resource": "Races",
+  "http_method": "GET",
+  "route": "/api/races",
+  "description": "Get races filtered by dates",
+  "explanation": null,
+  "parameters": [
+    {
+      "name": "start_date",
+      "description": "Start Date"
+    },
+    {
+      "name": "end_date",
+      "description": "End Date"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/races?start_date=Jun+1%2C+2015&end_date=Jun+20%2C+2015",
+      "request_body": null,
+      "request_headers": {
+        "Authorization": "Token token=\"9990C3D509F19E5F3EBEC442C6623644\"",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "start_date": "Jun 1, 2015",
+        "end_date": "Jun 20, 2015"
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\"races\":[{\"title\":\"Molkai\",\"date\":\"Jun 06, 2015\",\"city\":\"Molokai\",\"state\":\"Hawaii\",\"country\":\"USA\",\"url\":\"http://www.molokai2oahu.com/\",\"email\":\"shannon@molokai2oahu.com\"}]}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "\"e5727551006ddd643cafa6642514e2fd\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "268d4196-95cf-4b6b-815d-fcd0ef3906d9",
+        "X-Runtime": "0.000000",
+        "Content-Length": "174"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://supracefinder.com/api/races?start_date=Jun+1%2C+2015&end_date=Jun+20%2C+2015\" -X GET \\\n\t-H \"Authorization: Token token=\\\"9990C3D509F19E5F3EBEC442C6623644\\\"\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

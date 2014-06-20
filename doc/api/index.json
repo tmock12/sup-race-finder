@@ -1,0 +1,24 @@
+{
+  "resources": [
+    {
+      "name": "Races",
+      "examples": [
+        {
+          "description": "Create a Race",
+          "link": "races/create_a_race.json",
+          "groups": "all"
+        },
+        {
+          "description": "Get all races returns 1 year of races from today by default",
+          "link": "races/get_all_races_returns__year_of_races_from_today_by_default.json",
+          "groups": "all"
+        },
+        {
+          "description": "Get races filtered by dates",
+          "link": "races/get_races_filtered_by_dates.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}
