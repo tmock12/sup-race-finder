@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Authem::User
   before_save :generate_api_token, on: :create
+  alias_attribute :password_reset_token, :reset_password_token
 
   private
 
