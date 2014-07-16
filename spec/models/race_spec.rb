@@ -7,15 +7,15 @@ describe Race do
 
     context 'for a race with the same date' do
       it 'is invalid with a matching title' do
-        expect(Race.create(title: "The Florida Cup", date: Date.today)).to have(1).errors_on(:title)
+        expect(Race.create(title: "The Florida Cup", date: Date.today).errors[:title].length).to eq(1)
       end
 
       it 'is invalid with a very similar title' do
-        expect(Race.create(title: "florida cup", date: Date.today)).to have(1).errors_on(:title)
+        expect(Race.create(title: "florida cup", date: Date.today).errors[:title].length).to eq(1)
       end
 
       it 'is valid with a different title' do
-        expect(Race.create(title: "Carolina Cup", date: Date.today)).to have(0).errors_on(:title)
+        expect(Race.create(title: "Carolina Cup", date: Date.today).errors[:title].length).to eq(0)
       end
     end
   end

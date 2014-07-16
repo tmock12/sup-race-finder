@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe SessionsController do
+describe SessionsController, type: :controller do
 
   describe 'new' do
     context 'when signed in' do
-      before { controller.stub(:current_user).and_return(double) }
+      before { expect(controller).to receive(:current_user).and_return(double) }
       it 'redirectes to root with a current user' do
         get :new
         expect(response).to redirect_to(:root)

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RacesController do
+describe RacesController, type: :controller do
   before { described_class.skip_before_filter(:require_user) }
 
   describe '#update' do
