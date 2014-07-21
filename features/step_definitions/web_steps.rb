@@ -7,7 +7,7 @@ Given /^(?:|I )go to (.+)$/ do |page_name|
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
-  URI.parse(current_url).path.should == path_to(page_name)
+  expect(URI.parse(current_url).path).to eq(path_to(page_name))
 end
 
 When /^I follow "(.*?)"$/ do |link_text|
@@ -41,26 +41,26 @@ When /^I press "(.*?)"$/ do |button_text|
 end
 
 Then /^I should see "([^"]*)"$/ do |text|
-  page.should have_content(text)
+  expect(page).to have_content(text)
 end
 
 Then /^I should not see "(.*?)"$/ do |text|
-  page.should have_no_content(text)
+  expect(page).to have_no_content(text)
 end
 
 Then /^the "(.*?)" field should contain "(.*?)"$/ do |field, value|
   field = find_field(field)
   field_value = field.tag_name == 'textarea' && field.text.present? ? field.text : field.value
-  field_value.should =~ /#{value}/
+  expect(field_value).to =~ /#{value}/
 end
 
 Then /^the "(.*?)" select should contain "(.*?)"$/ do |field, text|
   select_box = field_labeled(field)
-  select_box.value.should == select_box.find(:css, "option", text: text).value
+  expect(select_box.value).to eq(select_box.find(:css, "option", text: text).value)
 end
 
 Then /^I should see the "(.*?)" field$/ do |field_name|
-  field_labeled(field_name).should be
+  expect(field_labeled(field_name)).to be
 end
 
 When /^I fill in "(.*?)" with "(.*?)"$/ do |field, value|
@@ -72,9 +72,9 @@ When /^I select "(.*?)" from "(.*?)"$/ do |value, field|
 end
 
 Then /^"(.*?)" should be checked$/ do |label|
-  find_field(label, visible: false).should be_checked
+  expect(find_field(label, visible: false)).to be_checked
 end
 
 Then /^"(.*?)" should not be visible$/ do |text|
-  page.should have_no_xpath('//*', text: text, visible: true)
+  expect(page).to have_no_xpath('//*', text: text, visible: true)
 end
