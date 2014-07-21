@@ -3,10 +3,10 @@ ruby '2.1.1'
 #ruby-gemset=race_calendar
 
 gem 'active_model_serializers'
+gem 'adequate_exposure'
 gem 'authem'
 gem 'chronic'
 gem 'coffee-rails'
-gem 'adequate_exposure'
 gem 'fabrication'
 gem 'faker'
 gem 'filepicker-rails'
