@@ -21,7 +21,6 @@ class SupRacerRaceRetriever < BaseRaceRetriever
         url: url,
         email: 'taylor@hashrocket.com'
       )
-      new_race.activate! if new_race.valid?
     end
   end
 end

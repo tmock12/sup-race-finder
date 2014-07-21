@@ -6,6 +6,7 @@ class Race < ActiveRecord::Base
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
+  scope :same_day, ->(date) { where(date: date) }
 
   def full_address
     [street, city, state, zip, country].compact.reject(&:blank?).join(', ')
@@ -23,7 +24,7 @@ class Race < ActiveRecord::Base
 
   def new_race
     errors.add(:title, "already exists") if
-    Race.where(date: date).where("UPPER(title) LIKE UPPER(?)", "%#{title}%").present?
+    Race.same_day(date).where("UPPER(title) LIKE UPPER(?)", "%#{title}%").present?
   end
 
   def generate_token

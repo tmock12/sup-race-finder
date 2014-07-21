@@ -5,6 +5,10 @@ class BaseRaceRetriever
     new
   end
 
+  def self.retrieve_all_races
+    [DistressedMulletRaceRetriever, PaddleGuruRetriever, SupRacerRaceRetriever].each(&:retrieve)
+  end
+
   def initialize
     get_races
   end

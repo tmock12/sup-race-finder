@@ -19,7 +19,6 @@ class DistressedMulletRaceRetriever < BaseRaceRetriever
         url: url,
         email: 'taylor@hashrocket.com'
       )
-      new_race.activate! if new_race.valid?
       sleep(2.seconds)
     end
   end
