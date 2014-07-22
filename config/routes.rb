@@ -17,6 +17,7 @@ RaceCalendar::Application.routes.draw do
   resource :dashboard, only: :show
 
   get '/sign_in', to: 'sessions#new'
+  get '/sign_out', to: 'sessions#destroy'
   resource :sessions, only: [:new, :create]
 
   namespace :api do
