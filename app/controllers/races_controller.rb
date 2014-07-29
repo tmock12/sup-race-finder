@@ -4,10 +4,10 @@ class RacesController < ApplicationController
   after_filter :set_session_dates
 
   expose(:start_date) do
-    date_parse(params[:start_date]) || session[:start_date].try(:to_date) || Date.today.to_date
+    date_parse(params[:start_date]) || session[:start_date].try(:[], :value).try(:to_date) || Date.today.to_date
   end
   expose(:end_date) do
-    date_parse(params[:end_date]) || session[:end_date].try(:to_date) || 1.year.from_now.to_date
+    date_parse(params[:end_date]) || session[:end_date].try(:[], :value).try(:to_date) || 1.year.from_now.to_date
   end
 
   def index
@@ -63,8 +63,8 @@ class RacesController < ApplicationController
   end
 
   def set_session_dates
-    session[:start_date] = start_date.strftime('%Y-%m-%d')
-    session[:end_date] = end_date.strftime('%Y-%m-%d')
+    session[:start_date] = {value: start_date.strftime('%Y-%m-%d'), expires: 1.minute.from_now}
+    session[:end_date] = {value: end_date.strftime('%Y-%m-%d'), expires: 1.minute.from_now}
   end
 
   def race_params
